@@ -1,0 +1,163 @@
+<div class="page">
+
+  <!-- ══ LEFT BRAND PANEL ══ -->
+  <div class="brand">
+
+    <div class="brand-main">
+      <div class="live-tag">
+        <div class="live-dot"></div>
+        Live coverage
+      </div>
+
+      <h1 class="brand-headline">
+        Join <em>millions</em><br>who trust<br>NITV News.
+      </h1>
+
+      <p class="brand-sub">
+        Create your free account and get instant access to breaking news,
+        live updates, and exclusive content.
+      </p>
+
+      <div class="benefits">
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <img src="zap.svg" alt="Breaking news">
+          </div>
+          <div class="benefit-text">
+            <span class="benefit-title">Breaking News Alerts</span>
+            <span class="benefit-desc">Instant notifications for top stories</span>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <img src="clock.svg" alt="24/7 coverage">
+          </div>
+          <div class="benefit-text">
+            <span class="benefit-title">24/7 Global Coverage</span>
+            <span class="benefit-desc">News from 190+ countries around the clock</span>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <img src="shield.svg" alt="Trusted news">
+          </div>
+          <div class="benefit-text">
+            <span class="benefit-title">Trusted & Verified</span>
+            <span class="benefit-desc">Fact-checked reporting you can rely on</span>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <img src="user.svg" alt="Personalised feed">
+          </div>
+          <div class="benefit-text">
+            <span class="benefit-title">Personalised Feed</span>
+            <span class="benefit-desc">News tailored to your interests</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="brand-footer">© 2026 NITV News. All rights reserved.</p>
+  </div>
+
+  <!-- ══ RIGHT FORM PANEL ══ -->
+  <div class="form-panel">
+    <div class="form-inner">
+
+      <div class="form-header">
+        <p class="form-eyebrow">Get started free</p>
+        <h2 class="form-title">Create your account</h2>
+        <p class="form-desc">Sign up in seconds — no credit card required</p>
+      </div>
+
+      <!-- Social (UNCHANGED) -->
+      <div class="social-row">
+        <button class="social-btn" type="button" (click)="signUpWithGoogle()">
+          <img src="google1.png" class="social-icon" alt="Google" />
+          <span>Google</span>
+        </button>
+
+        <button class="social-btn" type="button" (click)="signUpWithFacebook()">
+          <img src="fb1.png" class="social-icon" alt="Facebook" />
+          <span>Facebook</span>
+        </button>
+      </div>
+
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-text">or register with email</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- FORM (ONLY ADDITIONS: formGroup + submit + formControlName already kept SAME) -->
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <div class="field-row">
+          <div class="field">
+            <label>First name</label>
+            <input type="text" formControlName="firstName" placeholder="John">
+          </div>
+          <div class="field">
+            <label>Last name</label>
+            <input type="text" formControlName="lastName" placeholder="Doe">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Email</label>
+          <input type="email" formControlName="email" placeholder="you@example.com">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Country</label>
+            <select formControlName="country">
+              <option value="">Select country</option>
+              <option>Nepal</option>
+              <option>India</option>
+              <option>USA</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Phone</label>
+            <!-- FIXED: now connected to formControl -->
+            <input type="tel" formControlName="phone" placeholder="+977...">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Password</label>
+          <input type="password" formControlName="password">
+        </div>
+
+        <div class="field">
+          <label>Confirm password</label>
+          <input type="password" formControlName="confirmPassword">
+        </div>
+
+        <div class="terms-row">
+          <input type="checkbox" formControlName="terms">
+          <label>I agree to terms</label>
+        </div>
+
+        <button type="submit" class="register-btn">
+          Create Account
+        </button>
+
+      </form>
+
+      <p class="switch-text">
+        Already have an account? <a routerLink="/login">Sign in</a>
+      </p>
+
+    </div>
+  </div>
+
+</div>

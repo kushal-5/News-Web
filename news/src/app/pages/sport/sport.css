@@ -1,0 +1,435 @@
+* {
+  box-sizing: border-box;
+}
+
+.sport-container {
+  width: 100%;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* SECTION TITLE */
+
+.section-line {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 30px 0;
+}
+
+.section-line h2 {
+  color: #bf1e2e;
+  font-size: 28px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.section-line.gold h2 {
+  color: #ba8828;
+}
+
+.section-line p {
+  white-space: nowrap;
+  font-size: 18px;
+}
+
+.line {
+  width: 100%;
+  height: 2px;
+  background: rgba(191, 30, 46, 0.3);
+}
+
+/* EVENT CAROUSEL */
+
+.carousel-wrapper {
+  position: relative;
+}
+
+.event-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 10px 0;
+}
+
+.event-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.event-card {
+  min-width: 250px;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #a11f2d, #6d0f18);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.event-date {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  background: #bf1e2e;
+  padding: 10px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.event-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.event-subtitle {
+  font-size: 16px;
+  text-align: center;
+}
+
+/* BUTTONS */
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.left {
+  left: -10px;
+}
+
+.right {
+  right: -10px;
+}
+
+/* SPORT TITLE */
+
+.sport-heading {
+  background: #ba8828;
+  color: white;
+  text-align: center;
+  padding: 18px;
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+/* FOOTBALL SECTION */
+
+.football-desktop {
+  display: flex;
+  gap: 20px;
+}
+
+.cover-section {
+  width: 60%;
+  position: relative;
+}
+
+.cover-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay-title {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 60%;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.side-news {
+  width: 40%;
+
+}
+
+.news-card {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+    color: #bf1e2e;
+
+}
+
+.news-card img {
+  width: 160px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.news-card p {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* MOBILE */
+
+.mobile-scroll {
+  display: none;
+}
+
+/* TABLET */
+
+@media (max-width: 1024px) {
+
+  .football-desktop {
+    flex-direction: column;
+  }
+
+  .cover-section,
+  .side-news {
+    width: 100%;
+  }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .scroll-btn {
+    display: none;
+  }
+
+  .event-card {
+    min-width: 120px;
+    height: 180px;
+    padding: 10px;
+  }
+
+  .event-title {
+    font-size: 16px;
+  }
+
+  .event-subtitle {
+    font-size: 10px;
+  }
+
+  .sport-heading {
+    font-size: 24px;
+  }
+
+  .football-desktop {
+    display: none;
+  }
+
+  .mobile-scroll {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-top: 20px;
+  }
+
+  .mobile-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-card {
+    min-width: 160px;
+    flex-shrink: 0;
+  }
+
+  .mobile-card img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .mobile-card p {
+    font-size: 12px;
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  .section-line h2 {
+    font-size: 20px;
+  }
+
+  .section-line p {
+    font-size: 14px;
+  }
+
+}
+
+/* LINKS */
+
+a {
+  text-decoration: none;
+}
+
+/* EVENT CARD LINK */
+
+.event-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.event-card {
+  transition: 0.35s ease;
+  cursor: pointer;
+}
+
+.event-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(21, 101, 192, 0.25);
+}
+
+/* MORE NEWS */
+
+.more-news {
+  color: #bf1e2e;
+  font-weight: 600;
+  transition: 0.3s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+
+.more-news:hover {
+  color: #bf1e2e;
+  transform: translateX(4px);
+}
+
+/* COVER SECTION */
+
+.cover-section {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.cover-section img {
+  transition: 0.5s ease;
+}
+
+.cover-section:hover img {
+  transform: scale(1.06);
+}
+
+.cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.1)
+  );
+}
+
+.overlay-title {
+  z-index: 2;
+}
+
+/* NEWS CARD */
+
+.news-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: white;
+  border-radius: 14px;
+  padding: 10px;
+  transition: 0.35s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.news-card img {
+  transition: 0.4s ease;
+}
+
+.news-card:hover img {
+  transform: scale(1.05);
+}
+
+.news-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.news-content p {
+  transition: 0.3s ease;
+}
+
+.news-card:hover .news-content p {
+  color: #bf1e2e;
+}
+
+.read-more {
+  color: #bf1e2e;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: 0.3s ease;
+}
+
+.news-card:hover .read-more {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* MOBILE */
+
+.mobile-card {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.35s ease;
+}
+
+.mobile-card:hover {
+  transform: translateY(-5px);
+}
+
+.mobile-card img {
+  transition: 0.4s ease;
+}
+
+.mobile-card:hover img {
+  transform: scale(1.04);
+}
+
+.mobile-content {
+  padding-top: 10px;
+}
+
+.mobile-content span {
+  color: #bf1e2e;
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.mobile-card:hover span {
+  opacity: 1;
+}

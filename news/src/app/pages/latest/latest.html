@@ -1,0 +1,70 @@
+<div class="news-wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>News Portal</h1>
+    <p>Reliable Updates • Nepal</p>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-text">
+      <span class="label">Breaking News</span>
+
+      <h2>{{ hero.title }}</h2>
+
+      <p class="excerpt">{{ hero.excerpt }}</p>
+
+      <div class="meta">{{ hero.date }}</div>
+    </div>
+
+    <div class="hero-image">
+      <img [src]="hero.image" />
+    </div>
+
+  </section>
+
+  <!-- MAIN LAYOUT -->
+  <section class="layout">
+
+    <!-- ARTICLES -->
+    <div class="articles">
+
+      <div class="card" *ngFor="let a of articles">
+
+        <img [src]="a.image" />
+
+        <div class="content">
+          <h3>{{ a.title }}</h3>
+          <p>{{ a.excerpt }}</p>
+          <span>{{ a.date }}</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  <aside class="sidebar">
+
+  <div class="sidebar-header">
+    <h3>Trending</h3>
+    <span>Today</span>
+  </div>
+
+  <ul class="trending-list">
+    <li *ngFor="let t of trending">
+      <span class="dot"></span>
+      <span class="text">{{ t }}</span>
+    </li>
+  </ul>
+
+  <div class="trending-footer">
+    <button>View more</button>
+  </div>
+
+</aside>
+
+  </section>
+
+</div>

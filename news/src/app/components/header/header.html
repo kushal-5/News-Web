@@ -1,0 +1,53 @@
+<header class="header">
+  <div class="header-container">
+
+    <button class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen" aria-label="Open menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+   <div class="logo-section" routerLink="/home" style="cursor: pointer;">
+  <img src="nitvlogo.png" alt="NITV News" class="nav-logo" />
+  <h1 class="brand-name">NITV NEWS</h1>
+</div>
+    <div class="backdrop" [class.show]="isMenuOpen" (click)="toggleMenu()"></div>
+
+    <nav class="nav-menu" [class.open]="isMenuOpen">
+      <a routerLink="/home" class="nav-item">Home</a>
+     <a routerLink="/news" class="nav-item">News</a>
+
+      <a routerLink="/latest" class="nav-item">Latest</a>
+      <a routerLink="/health" class="nav-item">Health</a>
+      <a routerLink="/sport" class="nav-item">Sports</a>
+      <a routerLink="#" class="nav-item">Recharge</a>
+      <a routerLink="#" class="nav-item">Jyotish</a>
+      <a routerLink="#" class="nav-item">Rashifal</a>
+      <a routerLink="#" class="nav-item">Blog</a>
+      <a routerLink="#" class="nav-item">Gold/Silver</a>
+      <a routerLink="#" class="nav-item">Forex</a>
+      <a routerLink="#" class="nav-item">Converter</a>
+           <a routerLink="/contact" class="nav-item">Contact </a>
+
+    </nav>
+<!-- LOGIN BUTTON when not logged in  -->
+
+      <!-- LOGIN BUTTON when not logged in -->
+      <button *ngIf="!auth.isLoggedIn()" class="login-btn" routerLink="/login">
+        Login
+      </button>
+  
+      <!-- USER MENU when logged in -->
+      <div *ngIf="auth.isLoggedIn()" class="user-menu">
+  
+        <div class="user-icon" (click)="toggleDropdown()">
+          <img src="/user1.png" alt="User" />
+        </div>
+  
+        <div *ngIf="isDropdownOpen" class="dropdown">
+          <button (click)="logout()">Logout</button>
+        </div>
+  
+      </div>
+    </div>
+  </header>

@@ -1,0 +1,273 @@
+/* --- Header & Container --- */
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.header-container {
+  width: 100%;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* FIXED */
+  gap: 16px;
+}
+
+/* --- Logo Section --- */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+.nav-logo {
+  height: 52px;
+  width: auto;
+}
+
+.brand-name {
+  font-family: 'Mukta', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #000000;
+  text-transform: uppercase;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* --- Desktop Navigation --- */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-grow: 1;
+  min-width: 0;
+  overflow-x: auto; /* FIX */
+  margin-left: 2rem;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 27px 0;
+  position: relative;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-item:hover {
+  color: #bf1e2e;
+}
+
+.nav-item.active {
+  color: #666666;
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #bf1e2e;
+}
+
+.user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.user-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+.user-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  min-width: 120px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  z-index: 9999;
+}
+
+.dropdown.show {
+  display: block;
+}
+
+.dropdown button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: white;
+  cursor: pointer;
+}
+
+.dropdown button:hover {
+  background: #f5f5f5;
+}
+/* --- Login Button --- */
+.login-btn {
+  background-color: #bf1e2e;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1003; /* TOP */
+}
+
+.login-btn:hover {
+  background-color: #D62839;
+}
+
+/* --- Mobile Toggle --- */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  z-index: 1003; /* TOP */
+}
+
+.bar {
+  display: block;
+  width: 28px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #333;
+  transition: 0.3s;
+}
+
+/* Backdrop */
+.backdrop {
+  display: none;
+  z-index: 1001;
+}
+
+/* ===========================
+   Tablet + Mobile (<= 1024px)
+   =========================== */
+@media (max-width: 1024px) {
+  .header-container {
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    display: block;
+    order: 0;
+  }
+
+  .logo-section {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .login-btn {
+    margin-left: 0;
+    order: 2;
+  }
+
+  /* Backdrop */
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .backdrop.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Side Drawer */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-110%);
+    flex-direction: column;
+    background-color: #ffffff;
+    width: min(320px, 85vw);
+    height: 100vh;
+    padding: 90px 20px 20px;
+    margin: 0;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+    align-items: flex-start;
+    z-index: 1002; /* ABOVE backdrop */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-menu.open {
+    transform: translateX(0);
+  }
+
+  .nav-item {
+    width: 100%;
+    padding: 14px 0;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .nav-item.active::after {
+    display: none;
+  }
+
+  /* Hamburger to X */
+  .hamburger.active .bar:nth-child(2) { opacity: 0; }
+  .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
+/* --- Small Mobile Phones --- */
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 14px;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .nav-logo {
+    height: 35px;
+  }
+}

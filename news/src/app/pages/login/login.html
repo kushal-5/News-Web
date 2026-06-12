@@ -1,0 +1,86 @@
+<div class="page">
+
+  <!-- LEFT BRAND PANEL -->
+  <div class="brand">
+    <div class="brand-main">
+      <div class="live-tag">
+        <div class="live-dot"></div>
+        Live coverage
+      </div>
+
+      <h1 class="brand-headline">
+        The world's<br>story, <em>told</em><br>in real time.
+      </h1>
+
+      <p class="brand-sub">
+        Breaking news, in-depth analysis, and 24/7 global coverage — trusted by millions.
+      </p>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="form-panel">
+
+    <div class="form-header">
+      <p class="form-eyebrow">Member access</p>
+      <h2 class="form-title">Welcome back</h2>
+      <p class="form-desc">Sign in to access the latest news & updates</p>
+    </div>
+
+    <!-- SOCIAL BUTTONS (UNCHANGED) -->
+    <div class="social-row">
+      <button class="social-btn" type="button" (click)="signInWithGoogle()">
+        <img src="google1.png" class="social-icon" />
+        <span>Google</span>
+      </button>
+
+      <button class="social-btn" type="button" (click)="signInWithFacebook()">
+        <img src="fb1.png" class="social-icon" />
+        <span>Facebook</span>
+      </button>
+    </div>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-text">or</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <form (ngSubmit)="onLogin()" #f="ngForm">
+
+      <div class="field">
+        <label>Email address</label>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          required
+          placeholder="you@example.com"
+        />
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          placeholder="••••••••"
+        />
+      </div>
+
+      <button type="submit" class="signin-btn">
+        Sign In
+      </button>
+
+    </form>
+
+    <p class="switch-text">
+      Don't have an account?
+      <a routerLink="/register">Create account</a>
+    </p>
+
+  </div>
+</div>

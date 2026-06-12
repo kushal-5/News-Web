@@ -1,0 +1,134 @@
+<div class="sport-container">
+
+  <!-- TOURNAMENT TITLE -->
+  <div class="section-line">
+    <h2>टुर्नामेन्ट</h2>
+    <div class="line"></div>
+  </div>
+
+  <!-- EVENT CAROUSEL -->
+  <div class="carousel-wrapper">
+
+    <button class="scroll-btn left"
+      (click)="scroll(eventContainer,'left')">
+      ❮
+    </button>
+
+    <div class="event-scroll" #eventContainer>
+
+      <!-- FIXED -->
+      <a
+        class="event-card-link"
+        *ngFor="let item of eventData"
+        [routerLink]="['/event',]"
+      >
+        <div class="event-card">
+
+          <div class="event-date">
+            {{ item.nepaliDate }}
+          </div>
+
+          <div class="event-title">
+            {{ item.title }}
+          </div>
+
+          <div class="event-subtitle">
+            {{ item.subtitle }}
+          </div>
+
+        </div>
+      </a>
+
+    </div>
+
+    <button class="scroll-btn right"
+      (click)="scroll(eventContainer,'right')">
+      ❯
+    </button>
+
+  </div>
+
+  <!-- SPORTS TITLE -->
+  <div class="sport-heading">
+    खेलकुद
+  </div>
+
+  <!-- FOOTBALL SECTION -->
+  <div class="section-line gold">
+    <h2>फुटबल</h2>
+    <div class="line"></div>
+
+    <!-- FIXED -->
+    <a class="more-news" [routerLink]="['/sport']">
+      थप समाचार
+    </a>
+  </div>
+
+  <!-- DESKTOP -->
+  <div class="football-desktop">
+
+    <!-- COVER -->
+    <a
+      class="cover-section"
+      [routerLink]="['/sport', 'featured']"
+    >
+      <img src="/sport/cover.png" alt="cover">
+
+      <div class="cover-overlay"></div>
+
+      <div class="overlay-title">
+        स्मिथ बनिन् महिला फुटबल इतिहासकै सबैभन्दा महँगो खेलाडी
+      </div>
+    </a>
+
+    <!-- SIDE NEWS -->
+    <div class="side-news">
+
+      <a
+        class="news-card"
+        *ngFor="let item of cardData"
+        [routerLink]="['/sport', item.id]"
+      >
+
+        <img [src]="item.imageUrl">
+
+        <div class="news-content">
+
+          <p>{{ item.title }}</p>
+
+          <span class="read-more">
+            पूरा पढ्नुहोस् →
+          </span>
+
+        </div>
+
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- MOBILE CARDS -->
+  <div class="mobile-scroll">
+
+    <a
+      class="mobile-card"
+      *ngFor="let item of cardData"
+      [routerLink]="['/sport',]"
+    >
+
+      <img [src]="item.imageUrl">
+
+      <div class="mobile-content">
+
+        <p>{{ item.title }}</p>
+
+        <span>हेर्नुहोस् →</span>
+
+      </div>
+
+    </a>
+
+  </div>
+
+</div>

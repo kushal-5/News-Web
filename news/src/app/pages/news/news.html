@@ -1,0 +1,73 @@
+<div class="page-layout">
+  <!-- NAVBAR -->
+  <div class="nav-full-bleed">
+    <nav class="category-tabs">
+      <a href="#" class="tab active">ताजा समाचार</a>
+      <a href="#" class="tab">लोकप्रिय</a>
+      <a href="#" class="tab">देश</a>
+      <a href="#" class="tab">स्वास्थ्य</a>
+      <a href="#" class="tab">प्रविधि</a>
+    </nav>
+  </div>
+
+  <div class="content-container">
+    <!-- MAIN NEWS -->
+    <main class="news-feed">
+      @if (isLoading) {
+        <div class="skeleton-loader">लोड हुँदैछ...</div>
+      } @else {
+        @for (item of newsList; track item.link) { 
+          <article class="news-card">
+            <h2 class="news-heading">{{ item.title }}</h2>
+
+            <div class="news-sub-info">
+              <span class="source-tag">{{ item.source }}</span> • 
+              <span class="date-tag">
+                {{ item.published_date | date:'shortTime' }}
+              </span>
+            </div>
+
+            <p class="summary" [innerHTML]="item.description"></p>
+
+            <div class="actions">
+              <a 
+                [href]="item.link" 
+                target="_blank" 
+                class="btn-read"
+              >
+                पूरा समाचार पढ्नुहोस्
+              </a>
+            </div>
+          </article>
+        }
+      }
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <h3 class="sidebar-title">समाचार श्रोतहरू</h3>
+
+      <ul class="source-list">
+  @for (source of sources; track source) {
+  <li 
+    [class.active]="selectedSource === source"
+    (click)="filterBySource(source)"
+  >
+    @if (source !== 'सबै') {
+      <img 
+        [src]="getSourceLogo(source)" 
+        (error)="onLogoError($event)" 
+        class="source-logo"
+        alt="{{ source }} logo"
+      />
+    }
+
+    {{ source }}
+  </li>
+}
+</ul>
+      </div>
+    </aside>
+  </div>
+</div>

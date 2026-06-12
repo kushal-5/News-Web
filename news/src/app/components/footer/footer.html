@@ -1,0 +1,51 @@
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Main Footer Content -->
+    <div class="footer-main">
+      
+      <!-- Left Section: Menu Columns -->
+      <div class="footer-links">
+        <div class="footer-column" *ngFor="let section of footerData">
+          <h3 class="column-title">{{ section.title }}</h3>
+          <ul class="link-list">
+            <li *ngFor="let item of section.items">
+              <a href="#" class="footer-link">{{ item }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Section: Subscribe + Newsletter -->
+      <div class="footer-sidebar">
+        
+        <!-- Subscribe to SCMP -->
+        <div class="subscribe-box">
+          <div class="subscribe-content">
+            <h3>Subscribe to the SCMP</h3>
+            <p>Critical insights and analysis on China that matter to the world</p>
+          </div>
+          <button class="btn-primary">Subscribe</button>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Newsletter Signup -->
+        <div class="newsletter-box">
+          <div class="newsletter-content">
+            <h3>Sign up for our newsletters</h3>
+          </div>
+          <button class="btn-primary">
+            Find out more
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="footer-bottom">
+      <p>Copyright © {{ currentYear }} All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>

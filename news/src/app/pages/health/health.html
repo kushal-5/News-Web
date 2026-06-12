@@ -1,0 +1,201 @@
+<!-- health.component.html -->
+
+<section class="health-page">
+
+  <div class="news-wrapper">
+
+    <!-- HEADER -->
+    <div class="header">
+
+      <div>
+        <h1>स्वास्थ्य</h1>
+        <p>स्वास्थ्य, फिटनेस, पोषण र जीवनशैली सम्बन्धी ताजा समाचार</p>
+      </div>
+
+      <div class="header-right">
+        <span>अपडेट: २२ मे २०२६</span>
+      </div>
+
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="label">
+          {{ featuredNews.category }}
+        </div>
+
+        <h2>
+          {{ featuredNews.title }}
+        </h2>
+
+        <p class="excerpt">
+          {{ featuredNews.description }}
+        </p>
+
+        <div class="meta">
+          {{ featuredNews.author }} • {{ featuredNews.date }}
+        </div>
+
+        <button class="read-btn">
+          थप पढ्नुहोस्
+        </button>
+
+      </div>
+
+      <div class="hero-image">
+        <img [src]="featuredNews.image" alt="">
+      </div>
+
+    </section>
+
+    <!-- CATEGORY BOXES -->
+   <section class="top-category">
+
+  <div *ngFor="let news of healthNews" class="category-box">
+
+    <div class="image-wrapper">
+      <img [src]="news.image" [alt]="news.category" />
+    </div>
+
+    <div class="content">
+      <h3>{{ news.category }}</h3>
+      <p>{{ news.description }}</p>
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- MAIN LAYOUT -->
+    <div class="layout">
+
+      <!-- LEFT CONTENT -->
+      <div class="articles-section">
+
+        <!-- SECTION TITLE -->
+        <div class="section-title">
+          <h2>ताजा समाचार</h2>
+        </div>
+
+        <!-- NEWS CARD -->
+        <div class="card" *ngFor="let news of healthNews">
+
+          <img [src]="news.image" alt="">
+
+          <div class="card-content">
+
+            <div class="card-label">
+              {{ news.category }}
+            </div>
+
+            <h3>
+              {{ news.title }}
+            </h3>
+
+            <p>
+              {{ news.description }}
+            </p>
+
+            <div class="card-footer">
+
+              <span>
+                {{ news.time }}
+              </span>
+
+              <button>
+                पढ्नुहोस्
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      
+
+      </div>
+
+      <aside class="sidebar">
+
+        <div class="sidebar-box">
+
+          <div class="sidebar-header">
+
+            <h3>ट्रेन्डिङ</h3>
+
+            <span>Live</span>
+
+          </div>
+
+          <ul class="trending-list">
+
+            <li *ngFor="let item of trendingNews">
+
+              <div class="dot"></div>
+
+              <div class="text">
+                {{ item }}
+              </div>
+
+            </li>
+
+          </ul>
+
+        </div>
+
+        <!-- HEALTH TIPS -->
+        <div class="sidebar-box">
+
+          <div class="sidebar-header">
+            <h3>स्वास्थ्य सुझाव</h3>
+          </div>
+
+          <div class="tips">
+
+            <div class="tip">
+              <h4>पर्याप्त पानी पिउनुहोस्</h4>
+              <p>दैनिक कम्तीमा ८ गिलास पानी पिउनु आवश्यक।</p>
+            </div>
+
+            <div class="tip">
+              <h4>नियमित व्यायाम गर्नुहोस्</h4>
+              <p>दैनिक ३० मिनेट हिँड्दा स्वास्थ्य राम्रो रहन्छ।</p>
+            </div>
+
+            <div class="tip">
+              <h4>सन्तुलित भोजन खानुहोस्</h4>
+              <p>फलफूल र हरियो सागसब्जी बढी सेवन गर्नुहोस्।</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- NEWSLETTER -->
+        <div class="sidebar-box subscribe-box">
+
+          <h3>न्युजलेटर</h3>
+
+          <p>
+            स्वास्थ्य सम्बन्धी ताजा समाचार ईमेलमा प्राप्त गर्नुहोस्।
+          </p>
+
+          <input type="email" placeholder="ईमेल ठेगाना">
+
+          <button>
+            Subscribe
+          </button>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+</section>
